@@ -3,6 +3,7 @@ ThisBuild / version := "0.1.0-SNAPSHOT"
 ThisBuild / scalaVersion := "3.3.3"
 
 val lwjglVersion = "3.3.3"
+val tinylogVersion = "2.7.0"
 val os = "windows"
 
 val lwjglDeps = Seq("lwjgl",
@@ -12,6 +13,8 @@ val lwjglDeps = Seq("lwjgl",
   "org.lwjgl" % module % lwjglVersion,
   "org.lwjgl" % module % lwjglVersion classifier s"natives-$os"
 ))
+
+//val tinylogDeps = Seq("tinylog-api-scala", "tinylog-impl").map(module => "org.tinylog" % module % tinylogVersion)
 
 lazy val root = (project in file("."))
   .settings(
