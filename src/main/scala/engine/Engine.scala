@@ -9,7 +9,7 @@ final class Engine(title: String, options: WindowOptions, appLogic: AppLogic) {
   })
   //  val render = new Render()
   val scene = new Scene()
-  val render = new Render
+  val render: Render = Render.apply()
   private var _running = true
 
   appLogic.init(window, scene, null)
@@ -68,8 +68,8 @@ final class Engine(title: String, options: WindowOptions, appLogic: AppLogic) {
 
   private def cleanup(): Unit = {
     appLogic.cleanup()
-    // TODO Render.cleanup??
-    //    scene.cleanup // TODO Scene cleanup
+    render.cleanup()
+    scene.cleanup()
     window.cleanup()
   }
 

@@ -84,13 +84,17 @@ final class Window(title: String, opts: WindowOptions, resizeFn: Callable[Unit])
     if (callback != null) callback.free()
   }
 
-  def isKeyPressed(keyCode: Int) = glfwGetKey(this.handle, keyCode) == GLFW_PRESS
+  def isKeyPressed(keyCode: Int): Boolean = glfwGetKey(this.handle, keyCode) == GLFW_PRESS
 
   def pollEvents(): Unit = glfwPollEvents()
 
   def update(): Unit = glfwSwapBuffers(handle)
 
   def windowShouldClose(): Boolean = glfwWindowShouldClose(handle)
+  
+  def width(): Int = _width
+  
+  def height(): Int = _height
 }
 
 /**
