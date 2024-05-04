@@ -3,7 +3,7 @@ package engine
 
 import graph.Mesh
 
-import org.lwjgl.opengl.GL11.{GL_TRIANGLES, glDrawArrays}
+import org.lwjgl.opengl.GL11.{GL_TRIANGLES, GL_UNSIGNED_INT, glDrawElements}
 import org.lwjgl.opengl.GL30.glBindVertexArray
 
 /**
@@ -18,7 +18,13 @@ class Scene {
   
   def render(): Unit = _meshMap.foreach { case (_, mesh) =>
     glBindVertexArray(mesh.vaoId())
-    glDrawArrays(GL_TRIANGLES, 0, mesh.numVertices)
+    /*
+     mode - we are drawing triangles
+     count - how  many elements to render
+     type - data type of the indices array
+     indices - offset to apply to the indices data to start rendering
+     */
+    glDrawElements(GL_TRIANGLES, mesh.numVertices, GL_UNSIGNED_INT, 0)
   }
   
   def cleanup(): Unit = _meshMap.foreach { case (_, mesh) => 
