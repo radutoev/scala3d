@@ -1,6 +1,8 @@
 package io.softwarechain.game
 package app
-import engine.{Scene, Window}
+
+import engine.Window
+import engine.scene.Scene
 import graph.{Mesh, Render}
 
 class Quad extends AppLogic {
@@ -8,10 +10,10 @@ class Quad extends AppLogic {
 
   override def init(window: Window, scene: Scene, render: Render): Unit = {
     val positions = Array[Float](
-      -0.5f, 0.5f, 0.0f,
-      -0.5f, -0.5f, 0.0f,
-      0.5f, -0.5f, 0.0f,
-      0.5f, 0.5f, 0.0f
+      -0.5f, 0.5f, -1.0f,
+      -0.5f, -0.5f, -1.0f,
+      0.5f, -0.5f, -1.0f,
+      0.5f, 0.5f, -1.0f
     )
     val colors = Array[Float](
       0.5f, 0.0f, 0.0f,

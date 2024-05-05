@@ -1,8 +1,9 @@
 package io.softwarechain.game
 package app
 
-import engine.{Scene, Window}
+import engine.Window
 import graph.{Mesh, Render}
+import io.softwarechain.game.engine.scene.Scene
 
 /**
  * @deprecated

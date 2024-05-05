@@ -14,11 +14,13 @@ val lwjglDeps = Seq("lwjgl",
   "org.lwjgl" % module % lwjglVersion classifier s"natives-$os"
 ))
 
+val jomlDeps = Seq("org.joml" % "joml" % "1.10.5")
+
 //val tinylogDeps = Seq("tinylog-api-scala", "tinylog-impl").map(module => "org.tinylog" % module % tinylogVersion)
 
 lazy val root = (project in file("."))
   .settings(
     name := "scala3d",
     idePackagePrefix := Some("io.softwarechain.game"),
-    libraryDependencies ++= lwjglDeps
+    libraryDependencies ++= lwjglDeps ++ jomlDeps
   )

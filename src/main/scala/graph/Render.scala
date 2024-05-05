@@ -1,7 +1,8 @@
 package io.softwarechain.game
 package graph
 
-import engine.{Scene, Window}
+import engine.Window
+import io.softwarechain.game.engine.scene.Scene
 
 import org.lwjgl.opengl.GL
 import org.lwjgl.opengl.GL11.*

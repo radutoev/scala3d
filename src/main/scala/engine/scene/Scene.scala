@@ -1,5 +1,5 @@
 package io.softwarechain.game
-package engine
+package engine.scene
 
 import graph.Mesh
 
@@ -9,7 +9,7 @@ import org.lwjgl.opengl.GL30.glBindVertexArray
 /**
  * Will hold the 3D scene and future models.
  */
-class Scene {
+class Scene(val projection: Projection) {
   private var _meshMap: Map[String, Mesh] = Map.empty
   
   def addMesh(meshId: String, mesh: Mesh): Unit = {
@@ -26,8 +26,17 @@ class Scene {
      */
     glDrawElements(GL_TRIANGLES, mesh.numVertices, GL_UNSIGNED_INT, 0)
   }
+
+  def resize(width: Int, height: Int): Unit = {
+    projection.updateProjMatrix(width, height)
+  }
   
   def cleanup(): Unit = _meshMap.foreach { case (_, mesh) => 
     mesh.cleanup()
   }
 }
+
+object Scene:
+  def apply(width: Int, height: Int): Scene = {
+    new Scene(Projection(width, height))
+  }

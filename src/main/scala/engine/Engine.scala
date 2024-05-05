@@ -1,14 +1,14 @@
 package io.softwarechain.game
 package engine
 
+import engine.scene.Scene
 import graph.Render
 
 final class Engine(title: String, options: WindowOptions, appLogic: AppLogic) {
   val window = new Window(title, options, () => {
     resize()
   })
-  //  val render = new Render()
-  val scene = new Scene()
+  val scene: Scene = Scene(window.width(), window.height())
   val render: Render = Render.apply()
   private var _running = true
 
@@ -63,7 +63,7 @@ final class Engine(title: String, options: WindowOptions, appLogic: AppLogic) {
   }
 
   private def resize(): Unit = {
-
+    scene.resize(window.width(), window.height())
   }
 
   private def cleanup(): Unit = {

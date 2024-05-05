@@ -5,7 +5,7 @@ import engine.Resources
 
 import org.lwjgl.opengl.GL20.*
 
-final class ShaderProgram(programId: Int) {
+final class ShaderProgram(val programId: Int) {
   def bind(): Unit = glUseProgram(programId)
 
   def unbind(): Unit = glUseProgram(0)

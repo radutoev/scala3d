@@ -1,7 +1,8 @@
 package io.softwarechain.game
 
-import engine.{Scene, Window}
+import engine.Window
 import graph.Render
+import io.softwarechain.game.engine.scene.Scene
 
 trait AppLogic {
   def cleanup(): Unit
