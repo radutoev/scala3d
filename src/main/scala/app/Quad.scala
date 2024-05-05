@@ -5,6 +5,9 @@ import engine.Window
 import engine.scene.Scene
 import graph.{Mesh, Render}
 
+/**
+ * @deprecated
+ */
 class Quad extends AppLogic {
   override def cleanup(): Unit = ()
 
@@ -23,7 +26,7 @@ class Quad extends AppLogic {
     )
     val indices = Array[Int](0, 1, 3, 3, 1, 2)
     val mesh = new Mesh(positions, colors, indices)
-    scene.addMesh("quad", mesh)
+//    scene.addMesh("quad", mesh)
   }
 
   override def input(window: Window, scene: Scene, diffTimeMillis: Long): Unit = ()

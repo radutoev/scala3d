@@ -12,6 +12,8 @@ import org.lwjgl.opengl.GL11.*
  */
 class Render(sceneRender: SceneRender):
   def render(window: Window, scene: Scene): Unit = {
+    GL.createCapabilities
+    glEnable(GL_DEPTH_TEST)
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
     //we set the rendering area to the width / height dimensions.
     glViewport(0, 0, window.width(), window.height())
